@@ -4,20 +4,25 @@ import java.util.Scanner;
 public class Area {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        double radius;
         System.out.println("What is the radius of the circle?");
-        if (input.hasNextDouble()) {
-            double radius = input.nextDouble();
-            while(radius < 0){
-                System.out.println("Please enter a positive number for the radius");
+        while(1 == 1) {
+            if (input.hasNextDouble()) {
                 radius = input.nextDouble();
+                if (radius > 0) {
+                    break;
+                }
+                else {
+                    System.out.println("Please enter positive number:");
+                }
             }
-                double area = Circle.getArea(radius);
-                System.out.println("The area of a circle of radius " + radius + " is: " + area);
-                input.close();
+            else {
+                System.out.println("Please enter proper numerical answer:");
+                input.nextLine();
+            }
         }
-        else {
-            System.out.println("Invalid radius entered.  Goodbye");
-            input.close();
-        }
+        double area = Circle.getArea(radius);
+        System.out.println("The area of a circle of radius " + radius + " is: " + area);
+        input.close();
     }
 }
